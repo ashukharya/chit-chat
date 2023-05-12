@@ -17,10 +17,15 @@ const io = new Server(server, {
     methods: ["GET","POST"],
   },
 });
+
+app.get("/",function(req,res){
+  console.log("Server is Live...");
+});
+
 //https://superlative-gumption-c5dd94.netlify.app/
 
 io.on("connection", (socket) => {
-  //console.log(`User Connected: ${socket.id}`);
+  console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room",(data)=>{
     socket.join(data);
@@ -37,5 +42,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(port, () => {
-  console.log("Server of chat");
+  console.log("Server of chat...");
 });
