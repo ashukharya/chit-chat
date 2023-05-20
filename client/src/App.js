@@ -3,11 +3,11 @@ import io from "socket.io-client";
 import React, { useState } from "react";
 import Chat from "./Chat";
 // require('dotenv').config()
-const CHAT_SERVER_URL = process.env.SERVER_URL || "http://localhost:3001";
+const CHAT_SERVER_URL = "https://chat-app-backend-wr8g.onrender.com" || "http://localhost:3001";
 const socket=io.connect(CHAT_SERVER_URL);
 //const socket = io.connect("http://localhost:3001");
 //https://chat-app-be-e091.onrender.com
-    
+  console.log(CHAT_SERVER_URL)
 function App() {
   const [username,setUsername]=useState("");
   const [room,setRoom]=useState("");

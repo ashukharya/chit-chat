@@ -11,7 +11,7 @@ const server = http.createServer(app);
 // const io=skt(server);
 
 const port = process.env.PORT || 3001;
-const CHAT_CLIENT_URL = "http://localhost:3000";
+const CHAT_CLIENT_URL ="https://comforting-sunshine-191ae3.netlify.app/" || "http://localhost:3000";
 const io = new Server(server, {
   cors: {
     origin: CHAT_CLIENT_URL,
