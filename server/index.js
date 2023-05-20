@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const cors = require("cors");
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
 require('dotenv').config()
 //const skt = require("socket.io");
 app.use(cors()); 
@@ -18,12 +18,18 @@ const server = http.createServer(app);
 
 const port = process.env.PORT || 3001;
 const CHAT_CLIENT_URL ="https://comforting-sunshine-191ae3.netlify.app/" || "http://localhost:3000";
-const io = new Server(server, {
+const io = require("socket.io")(httpServer, {
   cors: {
     origin: CHAT_CLIENT_URL,
-    methods: ["GET","POST"]
-  },
-}); 
+    methods: ["GET", "POST"]
+  }
+});
+// const io = new Server(server, {
+//   cors: {
+//     origin: CHAT_CLIENT_URL,
+//     methods: ["GET","POST"]
+//   },
+// }); 
 
 app.get("/",function(req,res){
   res.send(`Server is Live... with ${CHAT_CLIENT_URL}`);
