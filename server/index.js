@@ -18,7 +18,7 @@ const server = http.createServer(app);
 
 const port = process.env.PORT || 3001;
 const CHAT_CLIENT_URL ="https://comforting-sunshine-191ae3.netlify.app/" || "http://localhost:3000";
-const io = require("socket.io")(httpServer, {
+const io = require("socket.io")(server, {
   cors: {
     origin: CHAT_CLIENT_URL,
     methods: ["GET", "POST"]
