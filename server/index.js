@@ -15,12 +15,12 @@ const CHAT_CLIENT_URL ="https://comforting-sunshine-191ae3.netlify.app/" || "htt
 const io = new Server(server, {
   cors: {
     origin: CHAT_CLIENT_URL,
-    methods: ["GET","POST"],
+    methods: ["GET","POST"]
   },
 }); 
 
 app.get("/",function(req,res){
-  res.send("Server is Live...");
+  res.send(`Server is Live... with ${CHAT_CLIENT_URL}`);
 }); 
 
 
