@@ -7,8 +7,8 @@ require('dotenv').config()
 //const skt = require("socket.io");
 app.use(cors()); 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', "*");
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Origin', 'https://blah-ap.netlify.app/');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
@@ -17,7 +17,7 @@ const server = http.createServer(app);
 // const io=skt(server);
 
 const port = process.env.PORT || 3001;
-const CHAT_CLIENT_URL ="https://bleh-blah.netlify.app/";
+const CHAT_CLIENT_URL ='https://bleh-blah.netlify.app/' || "http://localhost:3000";
 const io = require("socket.io")(server, {
   cors: {
     origin: CHAT_CLIENT_URL,
