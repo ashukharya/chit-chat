@@ -7,7 +7,7 @@ require('dotenv').config()
 //const skt = require("socket.io");
 app.use(cors()); 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://blah-ap.netlify.app/');
+  res.header('Access-Control-Allow-Origin', 'https://blah-ap.netlify.app/');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
